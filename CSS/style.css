@@ -45,6 +45,7 @@ a {
 /* Layout */
 .app-container {
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
 }
 
@@ -70,7 +71,6 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 0.75rem 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
@@ -101,7 +101,7 @@ a {
 }
 
 .nav-links li {
-    argin: 0.25rem 0;
+    margin: 0.25rem 0;
 }
 
 .nav-links a {
@@ -201,4 +201,34 @@ header h1 {
 
 .card-content a:hover {
     color: var(--accent-color);
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--primary-dark);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.875rem;
+    margin-top: auto;
+    margin-left: 260px; /* Match sidebar width */
+}   
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-link {
+    color: var(--accent-color);
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+body.sidebar-collapsed .site-footer {
+    margin-left: 60px; /* Angepasste Breite der eingeklappten Sidebar */
 }
