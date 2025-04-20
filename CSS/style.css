@@ -19,13 +19,13 @@
     padding: 0;
     box-sizing: border-box;
 }
-  
+
 html {
     font-family: 'Poppins', 'Segoe UI', 'Tahoma', 'Geneva', sans-serif;
     line-height: 1.5;
     font-size: 16px;
 }
-  
+
 body {
     color: var(--text-color);
     background-color: var(--secondary-color);
@@ -34,14 +34,103 @@ body {
 }
 
 ul {
-    list-style-type: none;
+    list-style: none;
 }
 
 a {
     text-decoration: none;
-
+    color: inherit;
 }
 
+/* Layout */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+#sidebar {
+    width: 260px;
+    background-color: var(--primary-color);
+    color: var(--text-on-primary);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+}
+
+/* Sidebar Header Bereich mit Flexbox für horizontale Ausrichtung */
+.nav-links li:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0;
+}
+
+#toggle-button {
+    background: transparent;
+    border: none;
+    color: var(--text-on-primary);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#toggle-button:hover {
+    opacity: 1;
+}
+
+.nav-links {
+    margin-top: 1rem;
+}
+
+.nav-links li {
+    argin: 0.25rem 0;
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+}
+
+.nav-links a svg {
+    margin-right: 1rem;
+    opacity: 0.8;
+    width: 20px;
+    height: 20px;
+}
+
+.nav-links a:hover, 
+.nav-links .active a {
+    color: var(--white);
+    background-color: var(--primary-light);
+    border-left: 3px solid var(--accent-color);
+}
+
+.nav-links a:hover svg, 
+.nav-links .active a svg {
+    opacity: 1;
+}
 
 /* Main Content */
 .content {
@@ -52,19 +141,16 @@ a {
 }
 
 header {
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 1rem;
-  }
-  
+    margin-bottom: 1.5rem;
+}
 
 header h1 {
     font-size: 1.75rem;
     font-weight: 600;
-    color: var(--primary-color);  
+    color: var(--primary-color);
 }
 
-/* Algorithm Grid */
+/* Algorithm Cards Grid */
 .algorithm-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -74,8 +160,8 @@ header h1 {
 .algorithm-card {
     background-color: var(--white);
     border-radius: 8px;
-    box-shadow: var(--shadow-sm);
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
     transition: transform 0.2s, box-shadow 0.2s;
     height: 100%;
     display: flex;
@@ -89,7 +175,7 @@ header h1 {
 
 .preview-card {
     height: 180px;
-    background-color: rgba(26, 71, 42, 0.1);
+    background-color: rgba(26, 71, 42, 0.1); /* Very light primary color */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,7 +193,7 @@ header h1 {
     color: var(--primary-color);
 }
 
-.card-content a{
+.card-content a {
     color: var(--primary-color);
     font-weight: 500;
     transition: color 0.2s;
