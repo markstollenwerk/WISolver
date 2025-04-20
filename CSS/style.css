@@ -1,4 +1,118 @@
+:root {
+    /* Dunkelgrüne Farbpalette */
+    --primary-color: #1a472a; /* Dunkelgrün als Hauptfarbe */
+    --primary-dark: #0d2818; /* Dunklerer Grünton */
+    --primary-light: #2d5f3e; /* Hellerer Grünton */
+    --accent-color: #5d9b6b; /* Akzentfarbe */
+    --secondary-color: #f2f3f5; /* Hellgrau für Hintergründe */
+    --text-color: #333;
+    --text-light: #666;
+    --text-on-primary: #ffffff; /* Text auf Primary Background */
+    --white: #fff;
+    --border-color: #e0e0e0;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+  
+html {
+    font-family: 'Poppins', 'Segoe UI', 'Tahoma', 'Geneva', sans-serif;
+    line-height: 1.5;
+    font-size: 16px;
+}
+  
+body {
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+
+/* Main Content */
+.content {
+    flex: 1;
+    margin-left: 260px; /* Match sidebar width */
+    padding: 2rem;
+    background-color: var(--secondary-color);
+}
+
+header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+  }
+  
+
+header h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--primary-color);  
+}
+
+/* Algorithm Grid */
+.algorithm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.algorithm-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.algorithm-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.preview-card {
+    height: 180px;
+    background-color: rgba(26, 71, 42, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-content {
+    padding: 1.25rem;
+    flex-grow: 1;
+}
+
+.card-content h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.card-content a{
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.card-content a:hover {
+    color: var(--accent-color);
 }
